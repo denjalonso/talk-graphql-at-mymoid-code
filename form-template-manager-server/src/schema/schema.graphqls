@@ -1,0 +1,48 @@
+type Template {
+    id : String,
+    headerPrimary: String,
+    backgroundColor: String,
+    buttonColor: String,
+    buttonTextColor: String,
+    hasHeader: Boolean,
+    hasConcept: Boolean,
+    hasReference: Boolean,
+    commerce: Commerce,
+}
+
+type Commerce {
+    id: String,
+    allowForProduction: Boolean,
+    companyName: String,
+    user: User,
+    publicid: String,
+    fiscalAddress: Address,
+}
+
+type User {
+    id: String,
+    role: Role,
+    email: String,
+    address: Address,
+}
+
+enum Role {
+    USER,
+    ADMIN
+}
+
+type Address {
+    address1: String,
+    city: String,
+    country: String,
+    postalCode: Int,
+    state: String,
+}
+
+type Query {
+    template(id: String!): Template
+}
+
+schema {
+    query: Query
+}
